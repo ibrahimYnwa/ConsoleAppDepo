@@ -11,6 +11,8 @@ namespace DepoApp
         static void Main(string[] args)
         {
             DrugCategoryController drugCategoryController = new DrugCategoryController ();
+            DrugController drugController = new DrugController();
+
             Helper.ChangeTextColor(ConsoleColor.Blue, "Welcome");
             while (true)
             {
@@ -19,7 +21,7 @@ namespace DepoApp
                 string selectedMenu = Console.ReadLine();
                 int menu;
                 bool isTrue = int.TryParse(selectedMenu, out menu);
-                if (isTrue && menu>=1 && menu<=7)
+                if (isTrue && menu>=1 && menu<=8)
                 {
                     switch (menu)
                     {
@@ -30,6 +32,7 @@ namespace DepoApp
                         case (int)Helper.Menu.UpdateDrugCategory:
                             break;
                         case (int)Helper.Menu.DeleteDrugCategory:
+                            drugCategoryController.Delete();
                             break;
                         case (int)Helper.Menu.GetDrugCategoryWithId:
                             break;
@@ -37,7 +40,11 @@ namespace DepoApp
                             break;
                         case (int)Helper.Menu.GetAllDrugCategory:
                             Helper.ChangeTextColor(ConsoleColor.Yellow, "All DrugCategory:");
-                            drugCategoryController.GetAllDrugCategory();
+                            drugCategoryController.GetAll();
+                            break;
+                        case (int)Helper.Menu.CreateDrug:
+                            drugCategoryController.GetAll();
+                            drugController.Create();
                             break;
 
                     }
@@ -63,7 +70,7 @@ namespace DepoApp
             Helper.ChangeTextColor(ConsoleColor.Green,
                    "1-Create DrugCategory,2-Update DrugCategory,3-Delete DrugCategory" +
                    "4-Get DrugCategory with Id,5-Get DrugCategory with Name" +
-                   "6-All DrugCategory,0-Exit");
+                   "6-All DrugCategory,7-Create Drug,0-Exit");
         }
     }
 }

@@ -34,12 +34,38 @@ namespace DepoApp.Controllers
             }
         }
 
-        public void GetAllDrugCategory()
+        public void GetAll()
         {
             foreach (DrugCategory item in drugCategoryService.GetAll())
             {
                 Helper.ChangeTextColor
                     (ConsoleColor.Blue, $"{item.Id}- {item.Name}");
+            }
+        }
+
+        public void Delete()
+        {
+            GetAll();
+            Helper.ChangeTextColor(ConsoleColor.Yellow, "Enter Drug Category id:");
+            string input = Console.ReadLine();
+            int drugCategoryId;
+            bool isTrueId = int.TryParse(input, out drugCategoryId);
+            if (isTrueId)
+            {
+                if (drugCategoryService.Delete(drugCategoryId) != null)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green, "Drug Category is deleted");
+                    return;
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, $"{drugCategoryId} is not found");
+                    return;
+                }
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, "Please Select correct format");
             }
         }
     }

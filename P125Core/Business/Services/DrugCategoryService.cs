@@ -40,7 +40,18 @@ namespace Business.Services
 
         public DrugCategory Delete(int Id)
         {
-            throw new NotImplementedException();
+            DrugCategory dbDrugCategory = drugCategoryRepository.Get(g => g.Id == Id);
+            if (dbDrugCategory !=null)
+            {
+                drugCategoryRepository.Delete(dbDrugCategory);
+                return dbDrugCategory;
+
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         public DrugCategory Get(int Id)
@@ -50,7 +61,8 @@ namespace Business.Services
 
         public DrugCategory Get(string Name)
         {
-            throw new NotImplementedException();
+            return drugCategoryRepository.Get(g => g.Name.ToLower() == Name.ToLower());
+
         }
 
         public List<DrugCategory> GetAll()

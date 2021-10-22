@@ -20,7 +20,8 @@ namespace Utilies.Helpers
             DeleteDrugCategory,
             GetDrugCategoryWithId,
             GetDrugCategorywithName,
-            GetAllDrugCategory
+            GetAllDrugCategory,
+            CreateDrug
         }
     }
 }
