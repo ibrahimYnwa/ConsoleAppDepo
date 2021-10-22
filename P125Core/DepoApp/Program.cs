@@ -1,4 +1,5 @@
 ﻿using System;
+using Utilies.Helpers;
 
 namespace DepoApp
 {
@@ -6,7 +7,12 @@ namespace DepoApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Helper.ChangeTextColor(ConsoleColor.Blue, "Welcome");
+            while (true)
+            {
+                Helper.ChangeTextColor(ConsoleColor.Green,"1-Create DrugCategory,"
+            }
+
         }
     }
 }

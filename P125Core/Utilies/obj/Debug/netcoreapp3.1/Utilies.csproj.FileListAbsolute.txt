@@ -1,0 +1,9 @@
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\bin\Debug\netcoreapp3.1\Utilies.deps.json
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\bin\Debug\netcoreapp3.1\Utilies.dll
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\bin\Debug\netcoreapp3.1\Utilies.pdb
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.AssemblyInfo.cs
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.dll
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.pdb
