@@ -7,3 +7,4 @@ C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.
 C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.csproj.CoreCompileInputs.cache
 C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.dll
 C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.pdb
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\Utilies\obj\Debug\netcoreapp3.1\Utilies.csproj.AssemblyReference.cache

@@ -12,5 +12,15 @@ namespace Utilies.Helpers
             Console.WriteLine(message);
             Console.ResetColor();
         }
+        public enum Menu
+        {
+            Exit,
+            CreateDrugCategory,
+            UpdateDrugCategory,
+            DeleteDrugCategory,
+            GetDrugCategoryWithId,
+            GetDrugCategorywithName,
+            GetAllDrugCategory
+        }
     }
 }

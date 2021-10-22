@@ -57,3 +57,5 @@ C:\Users\HP\Desktop\ConsoleAPP\P125Core\DepoApp\obj\Debug\netcoreapp3.1\DepoApp.
 C:\Users\HP\Desktop\ConsoleAPP\P125Core\DepoApp\obj\Debug\netcoreapp3.1\DepoApp.genruntimeconfig.cache
 C:\Users\HP\Desktop\ConsoleAPP\P125Core\DepoApp\bin\Debug\netcoreapp3.1\Utilies.dll
 C:\Users\HP\Desktop\ConsoleAPP\P125Core\DepoApp\bin\Debug\netcoreapp3.1\Utilies.pdb
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\DepoApp\bin\Debug\netcoreapp3.1\Business.dll
+C:\Users\HP\Desktop\ConsoleAPP\P125Core\DepoApp\bin\Debug\netcoreapp3.1\Business.pdb

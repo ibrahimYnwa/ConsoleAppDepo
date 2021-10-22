@@ -55,7 +55,7 @@ namespace Business.Services
 
         public List<DrugCategory> GetAll()
         {
-            throw new NotImplementedException();
+            return drugCategoryRepository.GetAll();
         }
 
         public DrugCategory Update(int Id, DrugCategory drugCategory)
