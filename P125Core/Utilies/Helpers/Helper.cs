@@ -21,7 +21,8 @@ namespace Utilies.Helpers
             GetDrugCategoryWithId,
             GetDrugCategorywithName,
             GetAllDrugCategory,
-            CreateDrug
+            CreateDrug,
+            GetAllDrugWithCategory
         }
     }
 }

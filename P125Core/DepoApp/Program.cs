@@ -46,7 +46,11 @@ namespace DepoApp
                             drugCategoryController.GetAll();
                             drugController.Create();
                             break;
+                        case (int)Helper.Menu.GetAllDrugWithCategory:
+                            drugCategoryController.GetAll();
+                            drugController.GetAllDrugWithCategory();
 
+                            break;
                     }
                 }
                 else if (menu == 0)
@@ -70,7 +74,7 @@ namespace DepoApp
             Helper.ChangeTextColor(ConsoleColor.Green,
                    "1-Create DrugCategory,2-Update DrugCategory,3-Delete DrugCategory" +
                    "4-Get DrugCategory with Id,5-Get DrugCategory with Name" +
-                   "6-All DrugCategory,7-Create Drug,0-Exit");
+                   "6-All DrugCategory,7-Create Drug,8-All Drug with Category,0-Exit");
         }
     }
 }

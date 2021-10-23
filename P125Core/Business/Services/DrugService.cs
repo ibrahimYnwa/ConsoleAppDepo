@@ -52,7 +52,16 @@ namespace Business.Services
 
         public List<Drug> GetAll(string drugCategoryName)
         {
-            throw new NotImplementedException();
+            DrugCategory dbDrugCategory = drugCategoryService.Get(drugCategoryName);
+            if (dbDrugCategory != null)
+            {
+                return drugRepository.GetAll(d => d.DrugCategory.Name == dbDrugCategory.Name);
+
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Drug Update(Drug drug, string drugCategoryName)

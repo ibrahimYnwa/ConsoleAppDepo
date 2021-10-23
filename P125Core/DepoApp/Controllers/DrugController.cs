@@ -33,5 +33,25 @@ namespace DepoApp.Controllers
             Helper.ChangeTextColor
                 (ConsoleColor.Red, $"Couldn'n find such as Drug Category-{drugCategoryName}");
         }
+
+        public void GetAllDrugWithCategory()
+        {
+            Helper.ChangeTextColor(ConsoleColor.Blue, "Select possible drug category: ");
+            string drugCategoryName = Console.ReadLine();
+            List<Drug> drugs = drugService.GetAll(drugCategoryName);
+            if (drugs != null)
+            {
+                Helper.ChangeTextColor(ConsoleColor.Blue, $"Drug Category {drugCategoryName}:");
+                foreach (var item in drugs)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green,
+                        $" {item.Name}-{item.Id}");
+                }
+                return;
+            }
+            Helper.ChangeTextColor
+                (ConsoleColor.Red, $"Couldn'n find such as Drug Category-{drugCategoryName}");
+
+        }
     }
 }
