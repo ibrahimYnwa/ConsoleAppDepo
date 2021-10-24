@@ -7,9 +7,9 @@ using Utilies.Helpers;
 
 namespace DepoApp.Controllers
 {
-   public class DrugController
+    public class DrugController
     {
-        private DrugService drugService { get;}
+        private DrugService drugService { get; }
         public DrugController()
         {
             drugService = new DrugService();
@@ -59,7 +59,7 @@ namespace DepoApp.Controllers
             Helper.ChangeTextColor(ConsoleColor.Blue, "Select possible drug name: ");
             string drugName = Console.ReadLine();
             Drug drug = drugService.Get(drugName);
-            if (drug !=null)
+            if (drug != null)
             {
                 Helper.ChangeTextColor(ConsoleColor.Green,
                     $"{drugName} - {drug.DrugCategory.Name}");
@@ -74,7 +74,7 @@ namespace DepoApp.Controllers
         {
             Helper.ChangeTextColor(ConsoleColor.Blue, "Select possible drug Id: ");
             string input = Console.ReadLine();
-            
+
             if (input != null)
             {
                 int drugId;
@@ -90,25 +90,79 @@ namespace DepoApp.Controllers
                 Helper.ChangeTextColor
                     (ConsoleColor.Red, $"Couldn't find such as Drug Name-{drugId}");
             }
-          
+
         }
 
         public void GetAllDrug()
         {
             string drugName = Console.ReadLine();
             List<Drug> drugs = drugService.GetAll(drugName);
-            foreach (Drug item in drugs)
+            if (drugs !=null)
             {
-                Helper.ChangeTextColor
-                    (ConsoleColor.Blue, $"{item.Id}- {item.Name}");
+                Helper.ChangeTextColor(ConsoleColor.Blue, $"Drug  {drugName}:");
+                foreach (var item in drugs)
+                {
+                    Helper.ChangeTextColor
+                        (ConsoleColor.Blue, $"{item.Id}- {item.Name}");
+                }
+                return;
             }
+            Helper.ChangeTextColor
+                (ConsoleColor.Red, $"Couldn't find such as Drug Name-{drugName}");
+
         }
 
         public void UpdateDrug()
         {
-            
-            Helper.ChangeTextColor(ConsoleColor.Yellow, "Enter Drug Category id:");
+            GetAllDrugWithCategory();
+            Helper.ChangeTextColor(ConsoleColor.Yellow, "Enter Drug  id:");
+            string input = Console.ReadLine();
+            int drugId;
+            Helper.ChangeTextColor(ConsoleColor.Yellow, "Enter Drug  Name:");
+            string drugName = Console.ReadLine();
+            Drug drug = new Drug();
+            drug.Name = drugName;
+            bool isTrueId = int.TryParse(input, out drugId);
+            if (isTrueId)
+            {
+                if (drugService.Update(drugId, drug) != null)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green, "Drug  is updated");
+                    return;
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, $"{drug} is not found");
+                    return;
+                }
+
+            }
         }
 
+        public void DeleteDrug()
+        {
+            GetAllDrugWithCategory();
+            Helper.ChangeTextColor(ConsoleColor.Yellow, "Enter Drug id:");
+            string input = Console.ReadLine();
+            int drugId;
+            bool isTrueId = int.TryParse(input, out drugId);
+            if (isTrueId)
+            {
+                if (drugService.Delete(drugId) != null)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green, "Drug is deleted");
+                    return;
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, $"{drugId} is not found");
+                    return;
+                }
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, "Please Select correct format");
+            }
+        }
     }
 }

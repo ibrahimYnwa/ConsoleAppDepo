@@ -21,7 +21,7 @@ namespace DepoApp
                 string selectedMenu = Console.ReadLine();
                 int menu;
                 bool isTrue = int.TryParse(selectedMenu, out menu);
-                if (isTrue && menu >= 1 && menu <= 11)
+                if (isTrue && menu >= 1 && menu <= 12)
                 {
                     switch (menu)
                     {
@@ -56,10 +56,12 @@ namespace DepoApp
                         case (int)Helper.Menu.GetDrugWithId:
                             drugController.GetDrugWithId();
                             break;
-                        case (int)Helper.Menu.GetAllDrug:
-                            drugController.GetAllDrug();
+                        case (int)Helper.Menu.UpdateDrug:
+                            drugController.UpdateDrug();
                             break;
-
+                        case (int)Helper.Menu.DeleteDrug:
+                            drugController.DeleteDrug();
+                            break;
 
                     }
                 }
@@ -85,7 +87,8 @@ namespace DepoApp
                    "1-Create DrugCategory,2-Update DrugCategory,3-Delete DrugCategory" +
                    "4-Get DrugCategory with Id,5-Get DrugCategory with Name" +
                    "6-All DrugCategory,7-Create Drug,8-Get All Drug with Category," +
-                   "9-Get Drug with Name,10-Get Drug with Id,0-Exit");
+                   "9-Get Drug with Name,10-Get Drug with Id,11-Update Drug," +
+                    "12-Delete Drug,0-Exit");
         }
     }
 }

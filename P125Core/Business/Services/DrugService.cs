@@ -35,9 +35,19 @@ namespace Business.Services
             }
         }
 
-        public Drug Delete(int id)
+        public Drug Delete(int id) 
         {
-            throw new NotImplementedException();
+            Drug dbDrug = drugRepository.Get(g => g.Id == id);
+            if (dbDrug != null)
+            {
+                drugRepository.Delete(dbDrug);
+                return dbDrug;
+
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Drug Get(int id)

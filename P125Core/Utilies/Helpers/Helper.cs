@@ -25,8 +25,8 @@ namespace Utilies.Helpers
             GetAllDrugWithCategory,
             GetDrugWithName,
             GetDrugWithId,
-            GetAllDrug,
             UpdateDrug,
+            DeleteDrug
 
 
 
