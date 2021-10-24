@@ -10,7 +10,7 @@ namespace DepoApp
     {
         static void Main(string[] args)
         {
-            DrugCategoryController drugCategoryController = new DrugCategoryController ();
+            DrugCategoryController drugCategoryController = new DrugCategoryController();
             DrugController drugController = new DrugController();
 
             Helper.ChangeTextColor(ConsoleColor.Blue, "Welcome");
@@ -21,15 +21,15 @@ namespace DepoApp
                 string selectedMenu = Console.ReadLine();
                 int menu;
                 bool isTrue = int.TryParse(selectedMenu, out menu);
-                if (isTrue && menu>=1 && menu<=8)
+                if (isTrue && menu >= 1 && menu <= 11)
                 {
                     switch (menu)
                     {
                         case (int)Helper.Menu.CreateDrugCategory:
                             drugCategoryController.Create();
                             break;
-
                         case (int)Helper.Menu.UpdateDrugCategory:
+                            drugCategoryController.Update();
                             break;
                         case (int)Helper.Menu.DeleteDrugCategory:
                             drugCategoryController.Delete();
@@ -49,8 +49,18 @@ namespace DepoApp
                         case (int)Helper.Menu.GetAllDrugWithCategory:
                             drugCategoryController.GetAll();
                             drugController.GetAllDrugWithCategory();
-
                             break;
+                        case (int)Helper.Menu.GetDrugWithName:
+                            drugController.GetDrugWithName();
+                            break;
+                        case (int)Helper.Menu.GetDrugWithId:
+                            drugController.GetDrugWithId();
+                            break;
+                        case (int)Helper.Menu.GetAllDrug:
+                            drugController.GetAllDrug();
+                            break;
+
+
                     }
                 }
                 else if (menu == 0)
@@ -74,7 +84,8 @@ namespace DepoApp
             Helper.ChangeTextColor(ConsoleColor.Green,
                    "1-Create DrugCategory,2-Update DrugCategory,3-Delete DrugCategory" +
                    "4-Get DrugCategory with Id,5-Get DrugCategory with Name" +
-                   "6-All DrugCategory,7-Create Drug,8-All Drug with Category,0-Exit");
+                   "6-All DrugCategory,7-Create Drug,8-Get All Drug with Category," +
+                   "9-Get Drug with Name,10-Get Drug with Id,0-Exit");
         }
     }
 }

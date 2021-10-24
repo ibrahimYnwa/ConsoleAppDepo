@@ -21,8 +21,8 @@ namespace Business.Services
             try
             {
                 drugCategory.Id = count;
-                DrugCategory isExist = 
-                    drugCategoryRepository.Get(g => g.Name.ToLower()==drugCategory.Name.ToLower());
+                DrugCategory isExist =
+                    drugCategoryRepository.Get(g => g.Name.ToLower() == drugCategory.Name.ToLower());
                 if (isExist != null)
                     return null;
                 drugCategoryRepository.Create(drugCategory);
@@ -41,7 +41,7 @@ namespace Business.Services
         public DrugCategory Delete(int Id)
         {
             DrugCategory dbDrugCategory = drugCategoryRepository.Get(g => g.Id == Id);
-            if (dbDrugCategory !=null)
+            if (dbDrugCategory != null)
             {
                 drugCategoryRepository.Delete(dbDrugCategory);
                 return dbDrugCategory;
@@ -51,12 +51,12 @@ namespace Business.Services
             {
                 return null;
             }
-            
+
         }
 
         public DrugCategory Get(int Id)
         {
-            throw new NotImplementedException();
+            return drugCategoryRepository.Get(d => d.Id == Id);
         }
 
         public DrugCategory Get(string Name)
@@ -72,7 +72,17 @@ namespace Business.Services
 
         public DrugCategory Update(int Id, DrugCategory drugCategory)
         {
-            throw new NotImplementedException();
+            DrugCategory dbDrugCategory = drugCategoryRepository.Get(g => g.Id == Id);
+            if (dbDrugCategory != null)
+            {
+                dbDrugCategory.Name = drugCategory.Name;
+                return dbDrugCategory;
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }

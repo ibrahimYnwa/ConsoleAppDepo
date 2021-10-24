@@ -5,15 +5,15 @@ using System.Text;
 
 namespace Business.Interfaces
 {
-   public interface IDrug
+    public interface IDrug
     {
-        Drug Create(Drug drug,string drugCategoryName);
+        Drug Create(Drug drug, string drugCategoryName);
         Drug Delete(int Id);
-        Drug Update(Drug drug,string drugCategoryName); //elave elemek olar 
+        Drug Update(int Id, Drug drug);
         Drug Get(int Id);
-        List<Drug> Get(string name);
+        Drug Get(string name);
         List<Drug> GetAll(string drugCategoryName);
 
-            
+
     }
 }

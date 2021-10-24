@@ -53,5 +53,62 @@ namespace DepoApp.Controllers
                 (ConsoleColor.Red, $"Couldn'n find such as Drug Category-{drugCategoryName}");
 
         }
+
+        public void GetDrugWithName()
+        {
+            Helper.ChangeTextColor(ConsoleColor.Blue, "Select possible drug name: ");
+            string drugName = Console.ReadLine();
+            Drug drug = drugService.Get(drugName);
+            if (drug !=null)
+            {
+                Helper.ChangeTextColor(ConsoleColor.Green,
+                    $"{drugName} - {drug.DrugCategory.Name}");
+                return;
+            }
+            Helper.ChangeTextColor
+                (ConsoleColor.Red, $"Couldn't find such as Drug Name-{drugName}");
+
+        }
+
+        public void GetDrugWithId()
+        {
+            Helper.ChangeTextColor(ConsoleColor.Blue, "Select possible drug Id: ");
+            string input = Console.ReadLine();
+            
+            if (input != null)
+            {
+                int drugId;
+                bool isTrueId = int.TryParse(input, out drugId);
+                isTrueId = int.TryParse(input, out drugId);
+                if (isTrueId)
+                {
+                    Drug drug = drugService.Get(drugId);
+                    Helper.ChangeTextColor(ConsoleColor.Green,
+                   $"{drug.Name} - {drug.DrugCategory.Name}");
+                    return;
+                }
+                Helper.ChangeTextColor
+                    (ConsoleColor.Red, $"Couldn't find such as Drug Name-{drugId}");
+            }
+          
+        }
+
+        public void GetAllDrug()
+        {
+            string drugName = Console.ReadLine();
+            List<Drug> drugs = drugService.GetAll(drugName);
+            foreach (Drug item in drugs)
+            {
+                Helper.ChangeTextColor
+                    (ConsoleColor.Blue, $"{item.Id}- {item.Name}");
+            }
+        }
+
+        public void UpdateDrug()
+        {
+            
+            Helper.ChangeTextColor(ConsoleColor.Yellow, "Enter Drug Category id:");
+        }
+
     }
 }

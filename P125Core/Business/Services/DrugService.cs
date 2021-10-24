@@ -35,19 +35,20 @@ namespace Business.Services
             }
         }
 
-        public Drug Delete(int Id)
+        public Drug Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Drug Get(int Id)
+        public Drug Get(int id)
         {
-            throw new NotImplementedException();
+            return drugRepository.Get(d => d.Id == id);
         }
 
-        public List<Drug> Get(string name)
+        public Drug Get(string name)
         {
-            throw new NotImplementedException();
+            return drugRepository.Get(g => g.Name.ToLower() == name.ToLower());
+
         }
 
         public List<Drug> GetAll(string drugCategoryName)
@@ -64,9 +65,22 @@ namespace Business.Services
             }
         }
 
-        public Drug Update(Drug drug, string drugCategoryName)
+        public Drug Update(int Id, Drug drug)
         {
-            throw new NotImplementedException();
+            Drug dbDrug = drugRepository.Get(d => d.Id == Id);
+            if (dbDrug !=null)
+            {
+                dbDrug.Name = drug.Name;
+                if (drug.DrugCategory != null)
+                {
+                    dbDrug.DrugCategory = drug.DrugCategory;
+                }
+                return dbDrug;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
