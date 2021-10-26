@@ -3,6 +3,7 @@ using DataAccess.Repositories;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
+using Utilies.Exceptions;
 using System.Text;
 
 namespace Business.Services
@@ -31,7 +32,7 @@ namespace Business.Services
             }
             else
             {
-                return null;
+                throw new DrugCAtegoryIsNotCreatedException("Drug is not Created");
             }
         }
 
@@ -46,7 +47,7 @@ namespace Business.Services
             }
             else
             {
-                return null;
+                throw new DrugIsNotFoundExceotion("Drug is not found with Id");
             }
         }
 
@@ -89,7 +90,7 @@ namespace Business.Services
             }
             else
             {
-                return null;
+                throw new DrugIsNotFoundExceotion("Drug is not found");
             }
         }
     }

@@ -4,6 +4,7 @@ using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Utilies.Exceptions;
 
 namespace Business.Services
 {
@@ -32,9 +33,7 @@ namespace Business.Services
             }
             catch (Exception)
             {
-
-                return null;
-
+                throw new DrugCAtegoryIsNotCreatedException("Drug Category is not Created");
             }
         }
 
@@ -49,7 +48,8 @@ namespace Business.Services
             }
             else
             {
-                return null;
+                throw new DrugCategoryIsNotFoundException
+                    ("Drug Category is not found with this id");
             }
 
         }
@@ -58,6 +58,8 @@ namespace Business.Services
         {
             return drugCategoryRepository.Get(d => d.Id == Id);
         }
+
+
 
         public DrugCategory Get(string Name)
         {
@@ -80,7 +82,7 @@ namespace Business.Services
             }
             else
             {
-                return null;
+                throw new DrugCategoryIsNotFoundException("Drug Category is not found");
             }
 
         }
